@@ -7,7 +7,7 @@ public class MorseTree {
 	TreeNode root;
 	
 	public MorseTree(){
-		root.setValue("-1");
+		root = new TreeNode(" ");
 		createTree(root);
 	}
 	
@@ -17,13 +17,17 @@ public class MorseTree {
 	
 	private void translateToEnglish(String input, TreeNode tree){
 		String[] words = input.split(" ");
+		TreeNode og = tree;
 		for(int i = 0; i < words.length; i ++){
+			tree = og;
 			char[] temp = words[i].toCharArray();
 			for(int j = 0; j <temp.length; j++){
 				if(temp[j]=='.')
 					tree=tree.getRight();
-					
+				else if (temp[j]=='-')
+					tree=tree.getLeft();		
 			}
+			System.out.print(tree.getValue());
 		}
 	}
 	
@@ -60,7 +64,7 @@ public class MorseTree {
 		root.getLeft().getRight().getLeft().setLeft(new TreeNode("Y"));
 		root.getLeft().getRight().getLeft().setRight(new TreeNode("C"));
 		root.getLeft().getLeft().setLeft(new TreeNode("O"));
-		root.getLeft().getLeft().setLeft(new TreeNode("G"));
+		root.getLeft().getLeft().setRight(new TreeNode("G"));
 		root.getLeft().getLeft().getLeft().setLeft(new TreeNode("Q"));
 		root.getLeft().getLeft().getLeft().setRight(new TreeNode("Z"));
 		root.getLeft().getLeft().getLeft().getRight().setRight(new TreeNode("7"));
