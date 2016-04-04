@@ -31,14 +31,14 @@ public class HistoTree{
 		return tree;
 	}
 
-	public HistoNode search(Comparable data){
-		return search(data, root);
-	}
-
-	private HistoNode search(Comparable data, HistoNode tree){
-		if(tree == null)
-			return null;
-	}
+//	public HistoNode search(Comparable data){
+//		return search(data, root);
+//	}
+//
+//	private HistoNode search(Comparable data, HistoNode tree){
+//		if(tree == null)
+//			return null;
+//	}
 
 	public String toString(){
 		return toString(root);
@@ -48,7 +48,7 @@ public class HistoTree{
 		if (tree == null)
 			return "";
 		else
-			return toString(tree.getLeft()) + " " + tree.getData() + " "
+			return toString(tree.getLeft()) + " " + tree.getData() + " = " + tree.getDataCount()
 					+ toString(tree.getRight());
 	}
 }
