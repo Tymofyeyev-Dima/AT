@@ -36,28 +36,26 @@ public class Heap{
 
 	public void swapDown(int top){
 		int root = 0;
-		int max = -1;
+		
 		while(root < top){
-			int left = root *2;
-			int right = root*2+1;
+			int left = root *2+1;
+			int right = root*2+2;
+			int max = root;
 			
-			if(list.get(left) != null){
-				if (list.get(right) != null){
-					if( list.get(left) > list.get(right))
-						max = left;
-					else 
-						max = right;
-				}
-				else
-					max = left;			
-			}
-			else
-				root = top;
+			if(left < list.size())
+				if(list.get(left) > list.get(max))
+					max = left;
 			
-			if( list.get(max) > list.get(root)){
-				swap(max, root);
+			if (right < list.size())
+				if(list.get(right) > list.get(max))
+					max = right;
+			
+			if( max > root){
+				swap(root, max);
 				root = max;
 			}
+			else
+				break;
 		}
 	}
 	
@@ -69,12 +67,19 @@ public class Heap{
 
 	public void print(){
 		out.println("\n\nPRINTING THE HEAP!\n\n");
-		out.println();
-		for (int i  = 0; i < list.size(); i ++)
-			System.out.print(list.get(i)+ " ");
+		for(int level = 0; level<Math.sqrt(list.size())+1; level++){
+			for (int i = 0; i < list.size(); i++)
+				System.out.print(list.get(i)+ " ");
+		}
+		
+		
+		
 	}
 
 	public String toString(){
-		return list.toString();
+		String out = "";
+		for (int i  = 0; i < list.size(); i ++)	
+			out += list.get(i) + " ";
+		return out;
 	}
 }
