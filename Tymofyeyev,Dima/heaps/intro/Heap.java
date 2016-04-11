@@ -67,13 +67,14 @@ public class Heap{
 
 	public void print(){
 		out.println("\n\nPRINTING THE HEAP!\n\n");
-		for(int level = 0; level<Math.sqrt(list.size())+1; level++){
-			for (int i = 0; i < list.size(); i++)
-				System.out.print(list.get(i)+ " ");
-		}
-		
-		
-		
+		int index = 0;
+		for(int level = 0; level < Math.sqrt(list.size())+1; level ++){
+			for (int i = index; i < Math.pow(2, level) + index; i++)
+				if(i<list.size())
+					System.out.print(list.get(i)+ " ");
+			System.out.println();
+			index+=Math.pow(2, level);
+		}	
 	}
 
 	public String toString(){
