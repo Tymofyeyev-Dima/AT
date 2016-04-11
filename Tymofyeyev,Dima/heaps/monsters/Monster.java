@@ -1,10 +1,10 @@
 package monsters;
 
-public class Monster{
+public class Monster implements Comparable{
 
 	private int ht, wt, age;
 	
-	public Monster(int height, int weight, int age){
+	public Monster(int height, int weight, int age) {
 		ht = height;
 		wt = weight;
 		this.age = age;
@@ -41,14 +41,17 @@ public class Monster{
 	public boolean equals(Object o){
 		return ((Monster) o).getWeight() == wt && ((Monster) o).getHeight() == ht && ((Monster) o).getAge() == age;
 	}
-
-	public int compareTo(Monster other) {
-		if(equals(other))
+	
+	@Override
+	public int compareTo(Object o) {
+		if(equals(((Monster) o)))
 			return 0;
-		else if (other.getHeight()!=ht)
-			return other.getHeight()-ht;
-		else if (other.getWeight()!=wt)
-			return other.getWeight()-wt;
+		else if (((Monster) o).getHeight()!=ht)
+			return ht - ((Monster) o).getHeight();
+		else if (((Monster) o).getWeight()!=wt)
+			return wt -((Monster) o).getWeight();
+		else if(((Monster) o).getAge()!=age)
+			return age - ((Monster) o).getAge();
 		else
 			return -1;
 		

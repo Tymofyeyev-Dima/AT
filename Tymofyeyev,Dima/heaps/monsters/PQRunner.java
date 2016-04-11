@@ -14,18 +14,26 @@ public class PQRunner
 	{
 		YourPQ test = new YourPQ();
 
-		Scanner keyboard=new Scanner(System.in);
-
-
-
-
-		//loop to read in values and instantiate your Objects
-	
-	
-	
-
-
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("How many monster would you wish to enter?");
+		int input = keyboard.nextInt();
+		
+		for (int i = 0; i <input; i ++){
+			System.out.println("Enter Height: ");
+			int ht = keyboard.nextInt();
+			System.out.println("Enter Weight: ");
+			int wt = keyboard.nextInt();
+			System.out.println("Enter Age: ");
+			int age = keyboard.nextInt();
+			Monster temp = new Monster(ht, wt, age);
+			test.add(temp);
+		}
+		
 		System.out.println(test);
+		System.out.println("getMin() - " + test.getMin());
+		System.out.println("removeMin() - " + test.removeMin());		
+		System.out.println(test);
+		
 		System.out.println("getMin() - " + test.getMin());
 		System.out.println("removeMin() - " + test.removeMin());		
 		System.out.println(test);
