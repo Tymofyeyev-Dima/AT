@@ -29,6 +29,8 @@ public class tester {
 
 		BigDecimal temp = new BigDecimal("0");
 		for(int i =2; i <=5000; i ++){
+			BigDecimal t = new BigDecimal("0");
+			t.multiply(new BigDecimal("2"));
 			
 		}
 	}
