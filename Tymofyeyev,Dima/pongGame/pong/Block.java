@@ -2,8 +2,7 @@ package pong;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Block implements Locatable
-{
+public class Block implements Locatable{
 	private int xPos, yPos, width, height;
 	private Color color;
 	
