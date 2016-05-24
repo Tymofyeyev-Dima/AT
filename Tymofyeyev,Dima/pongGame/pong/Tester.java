@@ -1,3 +1,5 @@
+package pong;
+
 import javax.swing.JFrame;
 import java.awt.Component;
 
@@ -14,11 +16,11 @@ public class Tester extends JFrame
 		getContentPane().add(new BlockTestTwo());
 
 		//uncomment when you are ready to test the Ball
-		//getContentPane().add(new BallTestTwo());
+		getContentPane().add(new BallTestTwo());
 
-		//PaddleTestTwo padTest = new PaddleTestTwo();
-		//((Component)padTest).setFocusable(true);
-		//getContentPane().add(padTest);
+		PaddleTestTwo padTest = new PaddleTestTwo();
+		((Component)padTest).setFocusable(true);
+		getContentPane().add(padTest);
 
 		setVisible(true);
 

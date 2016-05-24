@@ -9,8 +9,16 @@ public class Block implements Locatable{
 	public Block(){
 		xPos = 0; 
 		yPos = 0;
-		width = 0;
-		height = 0;
+		width = 10;
+		height = 10;
+		color = Color.BLACK;
+	}
+	
+	public Block(int xPos, int yPos){
+		this.xPos = xPos;
+		this.yPos = yPos;
+		width = 10;
+		height = 10;
 		color = Color.BLACK;
 	}
 
